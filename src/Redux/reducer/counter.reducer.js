@@ -13,10 +13,18 @@ const CounterReducer = (state = initialState, action)=>{
         }
 
         case  DECREMENT : 
-        return{
-            ...state,
-            counter :  state.counter - 1
-        }
+            if (state.counter == 0) {
+                return { ...state,
+                counter :  0
+                }
+            }
+            else{
+                return {
+                    ...state,
+                    counter :  state.counter - 1
+                }
+            }
+        
 
         default: return state;
     }
